@@ -8,7 +8,7 @@ Everything used in this repo is open source, free, or optional.
 
 This repo focuses on getting your project setup ASAP with all the tooling to start deploying from your first commit.
 
-## Features
+## ✨ Features
 - User Accounts & Authentication: [Devise](https://github.com/plataformatec/devise)
 - Livereload for Development: [Guard](https://github.com/guard/guard)
 - Upgraded Testing Suite: [RSpec](https://github.com/rspec/rspec), [faker](https://github.com/stympy/faker), [factory_bot](https://github.com/thoughtbot/factory_bot)
@@ -19,7 +19,7 @@ This repo focuses on getting your project setup ASAP with all the tooling to sta
 - Continuous Integration: [CircleCI](https://circleci.com), [CodeClimate](https://codeclimate.com)
 - Coming soon: Admin UI
 
-## Guides
+## 📝 Guides
 - [Getting started](https://github.com/TristanToye/rails-5-boilerplate#getting-started)
 - [Local setup](https://github.com/TristanToye/rails-5-boilerplate#local-setup)
 - [Feature Switches](https://github.com/TristanToye/rails-5-boilerplate#feature-switches)
@@ -31,14 +31,14 @@ This repo focuses on getting your project setup ASAP with all the tooling to sta
 - [Mailer Setup](https://github.com/TristanToye/rails-5-boilerplate#mailer-setup)
 - Custom Domain, DNS, & SSL - coming soon
 
-## Getting Started
+## 📦 Getting Started
 To setup the repo locally start by cloning it locally:
 ```
 git clone https://github.com/TristanToye/rails-5-boilerplate.git
 cd rails-5-boilerplate
 ```
 
-## Local Setup
+## 🔧 Local Setup
 Next you need to install all the dependiencies:
 - ruby 2.5.1
 - rails 5.2
@@ -68,7 +68,7 @@ Once you have everything installed, run bundler to get our gems setup:
 $ bundle install
 ```
 
-### Setup Secrets
+### 🔒 Setup Secrets
 For most credentials we want to use the new Rails 5.2 credential management. This article explains it well with examples: https://medium.com/cedarcode/rails-5-2-credentials-9b3324851336
 
 To get started here go delete my credentials located at `/config/credentials.yml.enc`.
@@ -87,7 +87,7 @@ We also likely want to handle some environment variables locally. We use a git-i
 
 Create a new file `.env` in the root of the repo. This will load any environment variables you might need to set in the future.
 
-### Generate Local Database
+### 🗃 Generate Local Database
 Makes sure postgres is running and setup your database:
 ```
 $ rails db:setup db:migrate
@@ -102,7 +102,7 @@ $ guard
 $ rails s
 ```
 
-## Feature Switches
+## 🐬 Feature Switches
 This app uses the lovely [Flipper gem](https://github.com/jnunemaker/flipper) to manage features.
 
 It is protected with a basic auth. Add the following to your credentials:
@@ -119,7 +119,7 @@ Then navigate to http://localhost:3000/flipper/features & enter your credentials
 
 Add the feature `show_auth` and enable it for everyone. This should show the login/signup links on the index of the app.
 
-## Testing
+## ✅ Testing
 You can start your app, and run your livereloading test suite with one command: `$ guard`
 
 Once guard is running, simply push `return` to run all tests & static checks.
@@ -129,7 +129,7 @@ To run the test suite on its own: `$ rspec`
 
 For more info check the RSpec related gems in the `Gemfile`.
 
-## Code Coverage
+## 🔧 Code Coverage
 Code coverage is setup with simplecov.
 
 Run your test suite: `$ rspec`
@@ -138,7 +138,7 @@ In your apps directory open `./coverage/index.html` in a browser to view a UI fo
 
 If you start the app with the `$ guard` command the code coverage will update coverage on each saved change.
 
-## Static Analysis
+## 🚨 Static Analysis
 There are multiple gems integrated in this app for static analysis.
 
 These all run as part of the `$ guard` command during development.
@@ -147,7 +147,7 @@ Rubocop: ruby style guide, [read more here](https://github.com/rubocop-hq/ruboco
 
 Brakeman: security analysis, [read more here](https://github.com/presidentbeef/brakeman). To use run: `$ brakeman`.
 
-## Deployment
+## 🚀 Deployment
 
 We are going to deloy this [Heroku](https://www.heroku.com/)
 
@@ -168,7 +168,7 @@ heroku run rails db:migrate -a APP_NAME`
 
 Heroku has a great set of documentation on how to get setup: https://devcenter.heroku.com/articles/getting-started-with-rails5
 
-## Continuous Integration
+## 👷 Continuous Integration
 This section could be expanded, but out of ther box there are some basic tools in place.
 
 ### CircleCi
@@ -200,7 +200,7 @@ Add this environment variable to CirclCi: `CC_TEST_REPORTER_ID`
 
 I highly recommend installing the browser extension as we: https://chrome.google.com/webstore/detail/code-climate/phgahogocbnfilkegjdpohgkkjgahjgk
 
-## Mailer Setup
+## ✉️ Mailer Setup
 
 ### GMail SMTP Free Sending
 If you have a gmail account this is a simple solution. You might want to create a new Gmail just for this app.

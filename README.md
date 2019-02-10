@@ -29,9 +29,7 @@ This repo focuses on getting your project setup ASAP with all the tooling to sta
 - [Deployment](https://github.com/TristanToye/rails-5-boilerplate#static-analysis)
 - [Continuous Integration](https://github.com/TristanToye/rails-5-boilerplate#continuous-integration)
 - [Mailer Setup](https://github.com/TristanToye/rails-5-boilerplate#mailer-setup)
-- Custom Domain - coming soon
-- DNS Setup - coming soon
-- SSL Setup - coming soon
+- Custom Domain, DNS, & SSL - coming soon
 
 ## Getting Started
 To setup the repo locally start by cloning it locally:

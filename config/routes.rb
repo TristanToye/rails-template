@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   # https://github.com/jnunemaker/flipper/blob/master/docs/ui/README.md#basic-authentication-via-rack
   flipper_app = Flipper::UI.app(Flipper.instance) do |builder|
     builder.use Rack::Auth::Basic do |username, password|
-      username == ENV['FLIPPER_USERNAME'] && password == ENV['FLIPPER_PASSWORD']
+      username == Rails.application.credentials.flipper[:user_name] &&
+        password == Rails.application.credentials.flipper[:password]
     end
   end
   mount flipper_app, at: '/flipper'

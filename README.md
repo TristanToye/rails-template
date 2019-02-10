@@ -72,20 +72,23 @@ $ bundle install
 ```
 
 ### Setup Secrets
-Every app has some secrets. We use a git ignored file to load them all when the app starts.
+For most credentials we want to use the new Rails 5.2 credential management. This article explains it well with examples: https://medium.com/cedarcode/rails-5-2-credentials-9b3324851336
 
-Create a new file `.env`.
+To get started here go delete my credentials located at `/config/credentials.yml.enc`.
 
-Generate a secret key:
+We will start by adding a `secret_key_base` to this file:
 ```
-$ rake secret
-7dc9dbc14adee4965d38838fd9c9b03441069a1788aff35fc80570e9476708c6e3c94dc2b03159d0fbfd984e4bbf6bfee9748fa95a17a517589166b2028c401c
+$ rake secrect
+840f20e6084666b7aabe9d94...
+$ EDITOR="code --wait" rails credentials:edit
+
+# In the credentials file add the following
+secret_key_base=840f20e6084666b7aabe9d94...
 ```
 
-Copy this key into your `.env` file:
-```
-SECRET_KEY_BASE=7dc9dbc14adee4965d38838fd9c9b03441069a1788aff35fc80570e9476708c6e3c94dc2b03159d0fbfd984e4bbf6bfee9748fa95a17a517589166b2028c401c
-```
+We also likely want to handle some environment variables locally. We use a git-ignored file to load them when the app starts.
+
+Create a new file `.env` in the root of the repo. This will load any environment variables you might need to set in the future.
 
 ### Generate Local Database
 Makes sure postgres is running and setup your database:
@@ -95,17 +98,24 @@ $ rails db:setup db:migrate
 
 Now you should be able to start your rails app and load it in your browser at http://localhost:3000:
 ```
-$ guard # to start with spring and all the goodies
-$ rails s # to start just the rails server
+# to start with spring and all the goodies
+$ guard
+
+# OR to start just the rails server
+$ rails s
 ```
 
 ## Feature Switches
 This app uses the lovely [Flipper gem](https://github.com/jnunemaker/flipper) to manage features.
 
-It is protected with a basic auth. Add the following to your `.env` & restart Guard:
+It is protected with a basic auth. Add the following to your credentials:
 ```
-FLIPPER_USERNAME=YOUR_USERNAME
-FLIPPER_PASSWORD=YOUR_PASSWORD
+$ EDITOR="code --wait" rails credentials:edit
+
+# In the file
+flipper:
+  user_name: YOUR_USERNAME
+  password: YOUR_PASSWORD
 ```
 
 Then navigate to http://localhost:3000/flipper/features & enter your credentials.
@@ -149,6 +159,8 @@ Create an account and create your first app. Add to your app the free tier of [H
 Next install the CLI locally & login: https://devcenter.heroku.com/articles/heroku-cli
 
 Add your `.env` variables to the [settings tab on your Heroku app](https://devcenter.heroku.com/articles/config-vars#using-the-heroku-dashboard).
+
+You will also need to add the contents of your `config/master.key` file to Heroku as `RAILS_MASTER_KEY` in the same setting location to allow Heroku to use your credentials.
 
 Deploy your repo from the `deploy` tab by connecting your github account and selecting the repo OR follow the linked guide below to deloy directly from your machine.
 
@@ -196,11 +208,15 @@ I highly recommend installing the browser extension as we: https://chrome.google
 ### GMail SMTP Free Sending
 If you have a gmail account this is a simple solution. You might want to create a new Gmail just for this app.
 
-Add to your `.env` & your Heroku environment variables:
+Add to your credentials the following:
 ```
-EMAIL_HOST=smtp.gmail.com
-EMAIL_USER=YOUR_GMAIL_EMAIL
-EMAIL_PASSWORD=YOUR_GMAIL_PASSWORD
+$ EDITOR="code --wait" rails credentials:edit
+
+# In the file opened add
+email:
+  host: smtp.gmail.com
+  user_name: YOUR_GMAIL_EMAIL
+  password: YOUR_GMAIL_PASSWORD
 ```
 
 ### Mail Service
@@ -212,9 +228,13 @@ Verify your domain with them.
 
 Select SMTP sending and get their config.
 
-Add to your `.env` & your Heroku environment variables:
+Add to your credentials the following:
 ```
-EMAIL_HOST=PROVIDER_SMTP_DOMAIN
-EMAIL_USER=EMAIL_OR_LOGIN
-EMAIL_PASSWORD=PASSWORD_OR_API_KEY
+$ EDITOR="code --wait" rails credentials:edit
+
+# In the file opened add
+email:
+  host: HOST_DOMAIN
+  user_name: PROVIDED_USER_NAME
+  password: PROVIDED_PASSWORD
 ```

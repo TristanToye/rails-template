@@ -63,11 +63,12 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
+
   # EMAIL SMTP
   config.action_mailer.smtp_settings = {
-    user_name: ENV['EMAIL_USER'],
-    password: ENV['EMAIL_PASSWORD'],
-    address: ENV['EMAIL_HOST'],
+    user_name: Rails.application.credentials.email[:user_name],
+    password: Rails.application.credentials.email[:password],
+    address: Rails.application.credentials.email[:host],
     port: 587,
     enable_starttls_auto: true,
     format: :html,

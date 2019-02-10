@@ -1,0 +1,59 @@
+require: rubocop-rspec
+
+AllCops:
+  UseCache: true
+  Exclude:
+      - 'db/*'
+      - vendor/**/*
+
+Metrics/BlockLength:
+  Enabled: true
+  Exclude:
+    - Guardfile
+    - config/environments/*
+
+Metrics/LineLength:
+  Max: 80
+  Severity: error
+  AllowHeredoc: true
+  AllowURI: true
+  IgnoreCopDirectives: true
+  URISchemes:
+    - http
+    - https
+  IgnoredPatterns: ['(\".*\")', "(\'.*\')", '(\A\s*#.+)']
+  Exclude:
+  - 'db/migrate/*'
+  - 'db/seeds/*'
+
+Metrics/MethodLength:
+  Enabled: true
+  Exclude:
+    - db/migrate/*
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/MixinUsage:
+  Enabled: true
+  Exclude:
+    - 'bin/update'
+    - 'bin/setup'
+
+Style/SymbolArray:
+  Enabled: true
+  Severity: error
+  EnforcedStyle: brackets
+
+Style/WordArray:
+  Enabled: true
+  Severity: error
+  EnforcedStyle: brackets
+
+RSpec/ImplicitExpect:
+  Enabled: true
+  Severity: error
+  EnforcedStyle: should

@@ -1,0 +1,220 @@
+# Rails 5 Boilerplate
+
+[![Maintainability](https://api.codeclimate.com/v1/badges/89fc762ec583cc1b84cd/maintainability)](https://codeclimate.com/github/TristanToye/rails-5-boilerplate/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/89fc762ec583cc1b84cd/test_coverage)](https://codeclimate.com/github/TristanToye/rails-5-boilerplate/test_coverage) [![CircleCI](https://circleci.com/gh/TristanToye/rails-5-boilerplate.svg?style=svg)](https://circleci.com/gh/TristanToye/rails-5-boilerplate) ![License](https://img.shields.io/github/license/tristantoye/rails-5-boilerplate.svg?style=flat) [![Price](https://img.shields.io/badge/price-FREE-0098f7.svg)](https://github.com/TristanToye/rails-5-boilerplate/blob/master/LICENSE) ![Issues](https://img.shields.io/github/issues-raw/tristantoye/rails-5-boilerplate.svg?style=flat) ![Monitoring](https://img.shields.io/uptimerobot/status/m781943983-80d12cbd488c39a365d85a41.svg?style=flat) ![Uptime](https://img.shields.io/uptimerobot/ratio/m781943983-80d12cbd488c39a365d85a41.svg?style=flat)
+
+A MVP ready boilerplate for Rails 5 apps.
+
+Everything used in this repo is open source, free, or optional.
+
+This repo focuses on getting your project setup ASAP with all the tooling to start deploying from your first commit.
+
+## Features
+- User Accounts & Authentication: [Devise](https://github.com/plataformatec/devise)
+- Livereload for Development: [Guard](https://github.com/guard/guard)
+- Upgraded Testing Suite: [RSpec](https://github.com/rspec/rspec), [faker](https://github.com/stympy/faker), [factory_bot](https://github.com/thoughtbot/factory_bot)
+- Static Analyses: [Brakeman](https://github.com/presidentbeef/brakeman), [Rubopcop](https://github.com/rubocop-hq/rubocop)
+- Code Coverage Reporting with a UI: [simplecov](https://github.com/colszowka/simplecov)
+- Secrets Management: [dotenv](https://github.com/bkeepers/dotenv)
+- Feature Switching with a UI: [flipper](https://github.com/jnunemaker/flipper)
+- Continuous Integration: [CircleCI](https://circleci.com), [CodeClimate](https://codeclimate.com)
+- Coming soon: Admin UI
+- Coming soon: uptime monitoring [UptimeRobot](https://uptimerobot.com/)
+
+## Guides
+- [Getting started](https://github.com/TristanToye/rails-5-boilerplate#getting-started)
+- [Local setup](https://github.com/TristanToye/rails-5-boilerplate#local-setup)
+- [Feature Switches](https://github.com/TristanToye/rails-5-boilerplate#feature-switches)
+- [Testing](https://github.com/TristanToye/rails-5-boilerplate#testing)
+- [Code Coverage](https://github.com/TristanToye/rails-5-boilerplate#code-coverage)
+- [Static Analysis](https://github.com/TristanToye/rails-5-boilerplate#static-analysis)
+- [Deployment](https://github.com/TristanToye/rails-5-boilerplate#static-analysis)
+- [Continuous Integration](https://github.com/TristanToye/rails-5-boilerplate#continuous-integration)
+- [Mailer Setup](https://github.com/TristanToye/rails-5-boilerplate#mailer-setup)
+- Custom Domain - coming soon
+- DNS Setup - coming soon
+- SSL Setup - coming soon
+
+## Getting Started
+To setup the repo locally start by cloning it locally:
+```
+git clone https://github.com/TristanToye/rails-5-boilerplate.git
+cd rails-5-boilerplate
+```
+
+## Local Setup
+Next you need to install all the dependiencies:
+- ruby 2.5.1
+- rails 5.2
+- postgres
+
+To accomplish this I recommend the following:
+- install homebrew
+- install RVM
+- install ruby 2.5.1
+- install rails 5.2
+- install postgres 10
+
+This guide walks you through it in details: http://railsapps.github.io/installrubyonrails-mac.html
+
+The only issue you might run into is setting up Postgres. If you use the recommend Postgres app (do this). When installing the `pg` gem you will need to run the following:
+```
+gem install pg -- --with-pg-config=/Applications/Postgres.app/Contents/Versions/10/bin/pg_config
+```
+
+Or you can add the app's config to your `~./bash_profile`:
+```
+export PATH="/Applications/Postgres.app/Contents/MacOS/bin:$PATH"
+```
+
+Once you have everything installed, run bundler to get our gems setup:
+```
+$ bundle install
+```
+
+### Setup Secrets
+Every app has some secrets. We use a git ignored file to load them all when the app starts.
+
+Create a new file `.env`.
+
+Generate a secret key:
+```
+$ rake secret
+7dc9dbc14adee4965d38838fd9c9b03441069a1788aff35fc80570e9476708c6e3c94dc2b03159d0fbfd984e4bbf6bfee9748fa95a17a517589166b2028c401c
+```
+
+Copy this key into your `.env` file:
+```
+SECRET_KEY_BASE=7dc9dbc14adee4965d38838fd9c9b03441069a1788aff35fc80570e9476708c6e3c94dc2b03159d0fbfd984e4bbf6bfee9748fa95a17a517589166b2028c401c
+```
+
+### Generate Local Database
+Makes sure postgres is running and setup your database:
+```
+$ rails db:setup db:migrate
+```
+
+Now you should be able to start your rails app and load it in your browser at http://localhost:3000:
+```
+$ guard # to start with spring and all the goodies
+$ rails s # to start just the rails server
+```
+
+## Feature Switches
+This app uses the lovely [Flipper gem](https://github.com/jnunemaker/flipper) to manage features.
+
+It is protected with a basic auth. Add the following to your `.env` & restart Guard:
+```
+FLIPPER_USERNAME=YOUR_USERNAME
+FLIPPER_PASSWORD=YOUR_PASSWORD
+```
+
+Then navigate to http://localhost:3000/flipper/features & enter your credentials.
+
+Add the feature `show_auth` and enable it for everyone. This should show the login/signup links on the index of the app.
+
+## Testing
+You can start your app, and run your livereloading test suite with one command: `$ guard`
+
+Once guard is running, simply push `return` to run all tests & static checks.
+For more info check the Guard related gems in the `Gemfile`.
+
+To run the test suite on its own: `$ rspec`
+
+For more info check the RSpec related gems in the `Gemfile`.
+
+## Code Coverage
+Code coverage is setup with simplecov.
+
+Run your test suite: `$ rspec`
+
+In your apps directory open `./coverage/index.html` in a browser to view a UI for the code coverage of your app.
+
+If you start the app with the `$ guard` command the code coverage will update coverage on each saved change.
+
+## Static Analysis
+There are multiple gems integrated in this app for static analysis.
+
+These all run as part of the `$ guard` command during development.
+
+Rubocop: ruby style guide, [read more here](https://github.com/rubocop-hq/rubocop). To use run: `$ rubocop`.
+
+Brakeman: security analysis, [read more here](https://github.com/presidentbeef/brakeman). To use run: `$ brakeman`.
+
+## Deployment
+
+We are going to deloy this [Heroku](https://www.heroku.com/)
+
+Create an account and create your first app. Add to your app the free tier of [Heroku Postgres](https://www.heroku.com/postgres) & [Papertrail](https://elements.heroku.com/addons/papertrail).
+
+Next install the CLI locally & login: https://devcenter.heroku.com/articles/heroku-cli
+
+Add your `.env` variables to the [settings tab on your Heroku app](https://devcenter.heroku.com/articles/config-vars#using-the-heroku-dashboard).
+
+Deploy your repo from the `deploy` tab by connecting your github account and selecting the repo OR follow the linked guide below to deloy directly from your machine.
+
+Finally, run the following to setup you database on the Heroku Postgres instance:
+```
+heroku run rails db:migrate -a APP_NAME`
+```
+
+Heroku has a great set of documentation on how to get setup: https://devcenter.heroku.com/articles/getting-started-with-rails5
+
+## Continuous Integration
+This section could be expanded, but out of ther box there are some basic tools in place.
+
+### CircleCi
+Use this for CI with Heroku to ensure all your tests pass before deploying a new version, before merging your latest PRs etc.
+
+You get one free linux bos to run tests on: https://circleci.com
+
+Connect your github account and select the repo to start running tests.
+
+By default this is configured to push code coverage to CodeClimate (see below).
+
+If you don't want to use CodeClimate comment out lines 94-96 from [.circleci/config.yml](https://github.com/TristanToye/rails-5-boilerplate/blob/master/.circleci/config.yml#L94):
+```
+      - send-code-coverage:
+          requires:
+            - build-rails
+```
+
+Once setup and you have your tests passing you can enable the option on Heroku to `Wait for CI to pass before deploy` from the `Deploy` tab of you app.
+
+### CodeClimate
+Use this for tracking issues, code coverage etc.
+
+Free for open source: https://codeclimate.com/
+
+Sign in with github & connect your repo.
+
+Add this environment variable to CirclCi: `CC_TEST_REPORTER_ID`
+
+I highly recommend installing the browser extension as we: https://chrome.google.com/webstore/detail/code-climate/phgahogocbnfilkegjdpohgkkjgahjgk
+
+## Mailer Setup
+
+### GMail SMTP Free Sending
+If you have a gmail account this is a simple solution. You might want to create a new Gmail just for this app.
+
+Add to your `.env` & your Heroku environment variables:
+```
+EMAIL_HOST=smtp.gmail.com
+EMAIL_USER=YOUR_GMAIL_EMAIL
+EMAIL_PASSWORD=YOUR_GMAIL_PASSWORD
+```
+
+### Mail Service
+You will require a real domain that you own to send email from.
+
+Sign up with a provider like https://sparkpost.com for a free plan.
+
+Verify your domain with them.
+
+Select SMTP sending and get their config.
+
+Add to your `.env` & your Heroku environment variables:
+```
+EMAIL_HOST=PROVIDER_SMTP_DOMAIN
+EMAIL_USER=EMAIL_OR_LOGIN
+EMAIL_PASSWORD=PASSWORD_OR_API_KEY
+```

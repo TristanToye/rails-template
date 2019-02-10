@@ -1,0 +1,103 @@
+version: 2
+
+defaults: &defaults
+  working_directory: ~/repo
+  docker:
+    - image: circleci/ruby:2.5.1-node-browsers
+      environment:
+        JOBS: 2
+        RAILS_ENV: test
+        PGHOST: 127.0.0.1
+        PGUSER: root
+        LOCAL_TEST_DB_NAME: circle-ci_test
+        DATABASE_URL: "postgres://root@localhost:5432/circle-ci_test"
+    - image: circleci/postgres:10
+      environment:
+        POSTGRES_USER: root
+        POSTGRES_DB: circle-ci_test
+
+jobs:
+  setup-code-coverage:
+    <<: *defaults
+    steps:
+      - run:
+          name:  Download CodeClimate Reporter
+          command: |
+            mkdir -p tmp/
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./tmp/cc-test-reporter
+            chmod +x ./tmp/cc-test-reporter
+      - persist_to_workspace:
+          root: tmp
+          paths:
+            - cc-test-reporter
+  rails:
+    <<: *defaults
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/repo/tmp
+      - restore_cache:
+          keys:
+            - rails-5-boilerplate-{{ checksum "Gemfile.lock" }}
+            - rails-5-boilerplate-
+      - run:
+          name: Install dependencies
+          command: |
+            bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs 4 --retry 3
+      - save_cache:
+          key: rails-5-boilerplate-{{ checksum "Gemfile.lock" }}
+          paths:
+            - ./vendor/bundle
+      - run:
+          name: Database Setup
+          command: |
+            bundle exec rails db:create db:schema:load --trace
+            bundle exec rake db:migrate
+      - run:
+          name: Run Brakeman
+          command: |
+            sudo mkdir /brakeman && bundle update brakeman --quiet
+            mkdir -p $CIRCLE_TEST_REPORTS/brakeman
+            bundle exec brakeman --exit-on-warn
+      - run:
+          name: Run Rubopcop
+          command: |
+            sudo mkdir /rubocop && bundle update rubocop --quiet
+            mkdir -p $CIRCLE_TEST_REPORTS/rubocop
+            bundle exec rubocop --fail-fast --fail-level E
+      - run:
+          name: Run Tests
+          command: |
+            bundle exec rspec
+      - run:
+          name: Format Coverage Data
+          command: |
+            ./tmp/cc-test-reporter format-coverage --debug -t simplecov -o tmp/codeclimate.rails-5-boilerplate.json ./rails-5-boilerplate/coverage/.resultset.json
+      - persist_to_workspace:
+          root: tmp
+          paths:
+            - codeclimate.rails-5-boilerplate.json
+  send-code-coverage:
+    <<: *defaults
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/repo/tmp
+      - run:
+          name: Send to CodeClimate
+          command: |
+            ./tmp/cc-test-reporter sum-coverage tmp/codeclimate.*.json -o tmp/codeclimate.total.json
+            ./tmp/cc-test-reporter upload-coverage -i tmp/codeclimate.total.json
+
+workflows:
+  version: 2
+  run_tests:
+    jobs:
+      - setup-code-coverage
+      - rails:
+          requires:
+            - setup-code-coverage
+      - send-code-coverage:
+          requires:
+            - rails
+

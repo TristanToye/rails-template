@@ -5,4 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :email, uniqueness: true
+
+  def admin?
+    admin
+  end
 end

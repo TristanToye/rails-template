@@ -86,8 +86,11 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: ['mingw', 'mswin', 'x64_mingw', 'jruby']
+# Admin UI https://github.com/activeadmin/activeadmin
+gem 'activeadmin'
 # Basic user Auth
 gem 'devise'
+# gem 'devise-i18n'
 # Admin UI https://github.com/sferik/rails_admin
 # currenly unable to install due to haml errors
 # gem 'rails_admin'

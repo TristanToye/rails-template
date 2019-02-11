@@ -18,18 +18,19 @@ This repo focuses on getting your project setup ASAP with all the tooling to sta
 - Secrets Management: [dotenv](https://github.com/bkeepers/dotenv)
 - Feature Switching with a UI: [flipper](https://github.com/jnunemaker/flipper)
 - Continuous Integration: [CircleCI](https://circleci.com), [CodeClimate](https://codeclimate.com)
-- Coming soon: Admin UI
+- Admin Dashboard UI: [ActiveAdmin](https://github.com/activeadmin/activeadmin)
 
 ## 📝 Guides
-- [Getting started](https://github.com/TristanToye/rails-5-boilerplate#getting-started)
-- [Local setup](https://github.com/TristanToye/rails-5-boilerplate#local-setup)
-- [Feature Switches](https://github.com/TristanToye/rails-5-boilerplate#feature-switches)
-- [Testing](https://github.com/TristanToye/rails-5-boilerplate#testing)
-- [Code Coverage](https://github.com/TristanToye/rails-5-boilerplate#code-coverage)
-- [Static Analysis](https://github.com/TristanToye/rails-5-boilerplate#static-analysis)
-- [Deployment](https://github.com/TristanToye/rails-5-boilerplate#static-analysis)
-- [Continuous Integration](https://github.com/TristanToye/rails-5-boilerplate#continuous-integration)
-- [Mailer Setup](https://github.com/TristanToye/rails-5-boilerplate#mailer-setup)
+- [Getting started](https://github.com/TristanToye/rails-5-boilerplate#-getting-started)
+- [Local setup](https://github.com/TristanToye/rails-5-boilerplate#-local-setup)
+- [Feature Switches](https://github.com/TristanToye/rails-5-boilerplate#-feature-switches)
+- [Admin Dashboard](https://github.com/TristanToye/rails-5-boilerplate#-admin-dashboard)
+- [Testing](https://github.com/TristanToye/rails-5-boilerplate#-testing)
+- [Code Coverage](https://github.com/TristanToye/rails-5-boilerplate#-code-coverage)
+- [Static Analysis](https://github.com/TristanToye/rails-5-boilerplate#-static-analysis)
+- [Deployment](https://github.com/TristanToye/rails-5-boilerplate#-static-analysis)
+- [Continuous Integration](https://github.com/TristanToye/rails-5-boilerplate#-continuous-integration)
+- [Mailer Setup](https://github.com/TristanToye/rails-5-boilerplate#-mailer-setup)
 - Custom Domain, DNS, & SSL - coming soon
 
 ## 📦 Getting Started
@@ -119,6 +120,25 @@ flipper:
 Then navigate to http://localhost:3000/flipper/features & enter your credentials.
 
 Add the feature `show_auth` and enable it for everyone. This should show the login/signup links on the index of the app.
+
+## 🔑 Admin Dashboard
+This app uses the [ActiveAdmin](https://github.com/activeadmin/activeadmin) gem to generate an admin UI.
+
+This is already up and running as part of your app! You just need to create an admin user to access it.
+
+Signup on your app and try navigate to http://localhost:3000/admin - you should be unable to access it yet.
+
+You need to set the boolean column `admin` on your user account to `true`.
+
+This is pretty fast to do from the rails console:
+```
+$ rails c
+> User.find_by(email: 'YOUR_ACCOUNTS_EMAIL').update(admin: true)
+```
+
+Now navigate to http://localhost:3000/admin and you should see the blank admin UI.
+
+You will need to [read the docs](https://activeadmin.info/documentation.html) to find out how to extend this for your own purposes.
 
 ## ✅ Testing
 You can start your app, and run your livereloading test suite with one command: `$ guard`

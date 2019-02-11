@@ -1,6 +1,7 @@
 # Rails 5 Boilerplate
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/89fc762ec583cc1b84cd/maintainability)](https://codeclimate.com/github/TristanToye/rails-5-boilerplate/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/89fc762ec583cc1b84cd/test_coverage)](https://codeclimate.com/github/TristanToye/rails-5-boilerplate/test_coverage) [![CircleCI](https://circleci.com/gh/TristanToye/rails-5-boilerplate.svg?style=svg)](https://circleci.com/gh/TristanToye/rails-5-boilerplate) ![License](https://img.shields.io/github/license/tristantoye/rails-5-boilerplate.svg?style=flat) [![Price](https://img.shields.io/badge/price-FREE-0098f7.svg)](https://github.com/TristanToye/rails-5-boilerplate/blob/master/LICENSE) ![Issues](https://img.shields.io/github/issues-raw/tristantoye/rails-5-boilerplate.svg?style=flat) ![Monitoring](https://img.shields.io/uptimerobot/status/m781943983-80d12cbd488c39a365d85a41.svg?style=flat) ![Uptime](https://img.shields.io/uptimerobot/ratio/m781943983-80d12cbd488c39a365d85a41.svg?style=flat)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/TristanToye/rails-5-boilerplate)
 
 A MVP ready boilerplate for Rails 5 apps.
 
@@ -148,6 +149,8 @@ Rubocop: ruby style guide, [read more here](https://github.com/rubocop-hq/ruboco
 Brakeman: security analysis, [read more here](https://github.com/presidentbeef/brakeman). To use run: `$ brakeman`.
 
 ## 🚀 Deployment
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/TristanToye/rails-5-boilerplate)
 
 We are going to deloy this [Heroku](https://www.heroku.com/)
 

@@ -1,0 +1,12 @@
+{
+  "name": "Rails Boilerplate",
+  "description": "A MVP ready rails app.",
+  "repository": "https://github.com/TristanToye/rails-5-boilerplate",
+  "image": "heroku/ruby",
+  "logo": "https://rubyonrails.org/images/rails-logo.svg",
+  "keywords": ["rails", "ruby", "ruby on rails", "boilerplate", "postgres", "MVP"],
+  "addons": ["heroku-postgresql", "papertrail"],
+  "scripts": {
+    "postdeploy": "rails db:migrate"
+  }
+}

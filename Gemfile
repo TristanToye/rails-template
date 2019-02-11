@@ -36,36 +36,38 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
-# fake data generation
-gem 'faker', '~> 1.9'
-
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: ['mri', 'mingw', 'x64_mingw']
-  # RSPec Testing
-  gem 'factory_bot_rails', '~> 4.11'
-  gem 'rspec-rails', '~> 3.8'
-  gem 'rubocop', '~> 0.63.1', require: false
-  gem 'rubocop-rspec', '~> 1.25'
-  # ENV Vars
+  # Environment Variable loading https://github.com/bkeepers/dotenv
   gem 'dotenv-rails'
+  # Stubbing for rails model https://github.com/thoughtbot/factory_bot_rails
+  gem 'factory_bot_rails', '~> 4.11'
+  # RSpec Testing https://github.com/rspec/rspec-rails
+  gem 'rspec-rails', '~> 3.8'
+  # Ruby static linting https://github.com/rubocop-hq/rubocop
+  gem 'rubocop', '~> 0.63.1', require: false
+  # RSpec extension https://github.com/rubocop-hq/rubocop-rspec
+  gem 'rubocop-rspec', '~> 1.25'
 end
 
 group :development do
-  # Security static analysis
+  # Security static analysis https://github.com/presidentbeef/brakeman
   gem 'brakeman'
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'web-console', '>= 3.3.0'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  # Live reloading for development https://github.com/guard/guard
   gem 'guard'
   gem 'guard-brakeman'
   gem 'guard-livereload', '~> 2.5', require: false
   gem 'guard-rails', require: false
   gem 'guard-rspec', require: false
   gem 'guard-spring'
-  gem 'pry-rails'
   gem 'rack-livereload'
+  # Load IRB for debugging https://github.com/rweng/pry-rails
+  gem 'pry-rails'
+  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-commands-rspec'
   gem 'spring-commands-rubocop'
@@ -78,24 +80,26 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
+  # Empty database between tests https://github.com/DatabaseCleaner/database_cleaner
   gem 'database_cleaner'
   gem 'rails-controller-testing'
+  # Awesome DSL for writing tests https://github.com/thoughtbot/shoulda-matchers
   gem 'shoulda-matchers', '4.0.0.rc1'
+  # Code Coverage reporting & UI https://github.com/colszowka/simplecov
   gem 'simplecov', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: ['mingw', 'mswin', 'x64_mingw', 'jruby']
+
 # Admin UI https://github.com/activeadmin/activeadmin
 gem 'activeadmin'
-# Basic user Auth
+# Basic user Auth https://github.com/plataformatec/devise
 gem 'devise'
 # gem 'devise-i18n'
-# Admin UI https://github.com/sferik/rails_admin
-# currenly unable to install due to haml errors
-# gem 'rails_admin'
-# gem 'haml', git: 'https://github.com/haml/haml'
-# Flipper for feature switches https://github.com/jnunemaker/flipper
+# Fake data generation https://github.com/stympy/faker
+gem 'faker', '~> 1.9'
+# Feature switch management & UI https://github.com/jnunemaker/flipper
 gem 'flipper'
 gem 'flipper-active_record'
 gem 'flipper-ui'

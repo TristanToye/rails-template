@@ -11,14 +11,14 @@ This repo focuses on getting your project setup ASAP with all the tooling to sta
 
 ## ✨ Features
 - User Accounts & Authentication: [Devise](https://github.com/plataformatec/devise)
+- Feature Switching with a UI: [flipper](https://github.com/jnunemaker/flipper)
+- Admin Dashboard UI: [ActiveAdmin](https://github.com/activeadmin/activeadmin)
+- Secrets Management: [dotenv](https://github.com/bkeepers/dotenv)
 - Livereload for Development: [Guard](https://github.com/guard/guard)
 - Upgraded Testing Suite: [RSpec](https://github.com/rspec/rspec), [faker](https://github.com/stympy/faker), [factory_bot](https://github.com/thoughtbot/factory_bot)
 - Static Analyses: [Brakeman](https://github.com/presidentbeef/brakeman), [Rubopcop](https://github.com/rubocop-hq/rubocop)
-- Code Coverage Reporting with a UI: [simplecov](https://github.com/colszowka/simplecov)
-- Secrets Management: [dotenv](https://github.com/bkeepers/dotenv)
-- Feature Switching with a UI: [flipper](https://github.com/jnunemaker/flipper)
 - Continuous Integration: [CircleCI](https://circleci.com), [CodeClimate](https://codeclimate.com)
-- Admin Dashboard UI: [ActiveAdmin](https://github.com/activeadmin/activeadmin)
+- Code Coverage Reporting with a UI: [simplecov](https://github.com/colszowka/simplecov)
 
 ## 📝 Guides
 - [Getting started](https://github.com/TristanToye/rails-5-boilerplate#-getting-started)

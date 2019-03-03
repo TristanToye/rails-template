@@ -10,20 +10,52 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
 
-    <% if Flipper[:show_auth].enabled? %>
-      <% if user_signed_in? %>
-        Logged in as <strong><%= current_user.email %></strong>.
-        <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-        <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-      <% else %>
-        <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-        <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-      <% end %>
-    <% end %>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="#">Rails Boilerplate</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item mt-2">
+              <a class="github-button" href="https://github.com/tristantoye/rails-5-boilerplate" data-size="large" data-show-count="true" aria-label="Star tristantoye/rails-5-boilerplate on GitHub">Star</a>
+            </li>
 
-    <%= yield %>
+          </ul>
+        </div>
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/TristanToye/rails-5-boilerplate" target="_blank">Docs</a>
+          </li>
+          <% if Flipper[:show_auth].enabled? %>
+            <% if user_signed_in? %>
+              <li class="nav-item">
+                <%= link_to 'Account', edit_user_registration_path, :class => 'nav-link' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'nav-link'  %>
+              </li>
+            <% else %>
+              <li class="nav-item">
+                <%= link_to "Sign up", new_user_registration_path, :class => 'nav-link'  %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "Login", new_user_session_path, :class => 'nav-link'  %>
+              </li>
+            <% end %>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
+
+    <main role="main" class="container mt-5">
+
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+
+      <%= yield %>
+    </main>
   </body>
 </html>

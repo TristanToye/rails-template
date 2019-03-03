@@ -92,14 +92,24 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: ['mingw', 'mswin', 'x64_mingw', 'jruby']
 
-# Admin UI https://github.com/activeadmin/activeadmin
-gem 'activeadmin'
 # Basic user Auth https://github.com/plataformatec/devise
 gem 'devise'
-# gem 'devise-i18n'
 # Fake data generation https://github.com/stympy/faker
 gem 'faker', '~> 1.9'
 # Feature switch management & UI https://github.com/jnunemaker/flipper
 gem 'flipper'
 gem 'flipper-active_record'
 gem 'flipper-ui'
+
+# UI Gems
+# Admin UI https://github.com/activeadmin/activeadmin
+gem 'activeadmin'
+# Include bootstrap 4 https://github.com/twbs/bootstrap-rubygem
+gem 'bootstrap', '~> 4.3.1'
+# Required for bootstrap jquery functionality
+gem 'jquery-rails'
+# Enable Translations of Devise views gem 'devise-i18n'
+# Must be before devise-bootstrap-views https://github.com/hisea/devise-bootstrap-views/issues/55
+gem 'devise-i18n'
+# Generate devise views with bootstrap https://github.com/hisea/devise-bootstrap-views
+gem 'devise-bootstrap-views', '~> 1.0'

@@ -42,14 +42,14 @@ cd rails-5-boilerplate
 
 ## 🔧 Local Setup
 Next you need to install all the dependiencies:
-- ruby 2.5.1
+- ruby 2.5.7
 - rails 5.2
 - postgres
 
 To accomplish this I recommend the following:
 - install homebrew
 - install RVM
-- install ruby 2.5.1
+- install ruby 2.5.7
 - install rails 5.2
 - install postgres 10
 

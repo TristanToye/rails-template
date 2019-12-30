@@ -38,14 +38,14 @@ jobs:
           at: ~/repo/tmp
       - restore_cache:
           keys:
-            - rails-5-boilerplate-{{ checksum "Gemfile.lock" }}
-            - rails-5-boilerplate-
+            - rails-template-{{ checksum "Gemfile.lock" }}
+            - rails-template-
       - run:
           name: Install dependencies
           command: |
             bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs 4 --retry 3
       - save_cache:
-          key: rails-5-boilerplate-{{ checksum "Gemfile.lock" }}
+          key: rails-template-{{ checksum "Gemfile.lock" }}
           paths:
             - ./vendor/bundle
       - run:
@@ -72,11 +72,11 @@ jobs:
       - run:
           name: Format Coverage Data
           command: |
-            ./tmp/cc-test-reporter format-coverage --debug -t simplecov -o tmp/codeclimate.rails-5-boilerplate.json ./rails-5-boilerplate/coverage/.resultset.json
+            ./tmp/cc-test-reporter format-coverage --debug -t simplecov -o tmp/codeclimate.rails-template.json ./rails-template/coverage/.resultset.json
       - persist_to_workspace:
           root: tmp
           paths:
-            - codeclimate.rails-5-boilerplate.json
+            - codeclimate.rails-template.json
   send-code-coverage:
     <<: *defaults
     steps:

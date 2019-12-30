@@ -23,13 +23,13 @@ default: &default
 
 development:
   <<: *default
-  database: rails-5-boilerplate_development
+  database: rails-template_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user that initialized the database.
-  #username: rails-5-boilerplate
+  #username: rails-template
 
   # The password associated with the postgres role (username).
   #password:
@@ -57,7 +57,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: rails-5-boilerplate_test
+  database: rails-template_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -81,6 +81,6 @@ test:
 production:
   <<: *default
   url: <%= ENV['DATABASE_URL'] %>
-  # database: rails-5-boilerplate_production
-  # username: rails-5-boilerplate
+  # database: rails-template_production
+  # username: rails-template
   # password: <%= ENV['RAILS_5_BOILERPLATE_DATABASE_PASSWORD'] %>

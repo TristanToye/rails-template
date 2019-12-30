@@ -1,9 +1,9 @@
-# Rails 5 Boilerplate
+# Rails Template
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/89fc762ec583cc1b84cd/maintainability)](https://codeclimate.com/github/TristanToye/rails-5-boilerplate/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/89fc762ec583cc1b84cd/test_coverage)](https://codeclimate.com/github/TristanToye/rails-5-boilerplate/test_coverage) [![CircleCI](https://circleci.com/gh/TristanToye/rails-5-boilerplate.svg?style=svg)](https://circleci.com/gh/TristanToye/rails-5-boilerplate) ![License](https://img.shields.io/github/license/tristantoye/rails-5-boilerplate.svg?style=flat) [![Price](https://img.shields.io/badge/price-FREE-0098f7.svg)](https://github.com/TristanToye/rails-5-boilerplate/blob/master/LICENSE) ![Issues](https://img.shields.io/github/issues-raw/tristantoye/rails-5-boilerplate.svg?style=flat) ![Monitoring](https://img.shields.io/uptimerobot/status/m781943983-80d12cbd488c39a365d85a41.svg?style=flat) ![Uptime](https://img.shields.io/uptimerobot/ratio/m781943983-80d12cbd488c39a365d85a41.svg?style=flat)
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/TristanToye/rails-5-boilerplate) [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/?repository=https://github.com/TristanToye/rails-5-boilerplate)
+[![Maintainability](https://api.codeclimate.com/v1/badges/89fc762ec583cc1b84cd/maintainability)](https://codeclimate.com/github/TristanToye/rails-template/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/89fc762ec583cc1b84cd/test_coverage)](https://codeclimate.com/github/TristanToye/rails-template/test_coverage) [![CircleCI](https://circleci.com/gh/TristanToye/rails-template.svg?style=svg)](https://circleci.com/gh/TristanToye/rails-template) ![License](https://img.shields.io/github/license/tristantoye/rails-template.svg?style=flat) [![Price](https://img.shields.io/badge/price-FREE-0098f7.svg)](https://github.com/TristanToye/rails-template/blob/master/LICENSE) ![Issues](https://img.shields.io/github/issues-raw/tristantoye/rails-template.svg?style=flat) ![Monitoring](https://img.shields.io/uptimerobot/status/m781943983-80d12cbd488c39a365d85a41.svg?style=flat) ![Uptime](https://img.shields.io/uptimerobot/ratio/m781943983-80d12cbd488c39a365d85a41.svg?style=flat)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/TristanToye/rails-template) [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/?repository=https://github.com/TristanToye/rails-template)
 
-A MVP ready boilerplate for Rails 5 apps.
+A MVP ready template for Rails apps.
 
 Everything used in this repo is open source, free, or optional.
 
@@ -21,23 +21,23 @@ This repo focuses on getting your project setup ASAP with all the tooling to sta
 - Code Coverage Reporting with a UI: [simplecov](https://github.com/colszowka/simplecov)
 
 ## 📝 Guides
-- [Getting started](https://github.com/TristanToye/rails-5-boilerplate#-getting-started)
-- [Local setup](https://github.com/TristanToye/rails-5-boilerplate#-local-setup)
-- [Feature Switches](https://github.com/TristanToye/rails-5-boilerplate#-feature-switches)
-- [Admin Dashboard](https://github.com/TristanToye/rails-5-boilerplate#-admin-dashboard)
-- [Testing](https://github.com/TristanToye/rails-5-boilerplate#-testing)
-- [Code Coverage](https://github.com/TristanToye/rails-5-boilerplate#-code-coverage)
-- [Static Analysis](https://github.com/TristanToye/rails-5-boilerplate#-static-analysis)
-- [Deployment](https://github.com/TristanToye/rails-5-boilerplate#-static-analysis)
-- [Continuous Integration](https://github.com/TristanToye/rails-5-boilerplate#-continuous-integration)
-- [Mailer Setup](https://github.com/TristanToye/rails-5-boilerplate#-mailer-setup)
+- [Getting started](https://github.com/TristanToye/rails-template#-getting-started)
+- [Local setup](https://github.com/TristanToye/rails-template#-local-setup)
+- [Feature Switches](https://github.com/TristanToye/rails-template#-feature-switches)
+- [Admin Dashboard](https://github.com/TristanToye/rails-template#-admin-dashboard)
+- [Testing](https://github.com/TristanToye/rails-template#-testing)
+- [Code Coverage](https://github.com/TristanToye/rails-template#-code-coverage)
+- [Static Analysis](https://github.com/TristanToye/rails-template#-static-analysis)
+- [Deployment](https://github.com/TristanToye/rails-template#-static-analysis)
+- [Continuous Integration](https://github.com/TristanToye/rails-template#-continuous-integration)
+- [Mailer Setup](https://github.com/TristanToye/rails-template#-mailer-setup)
 - Custom Domain, DNS, & SSL - coming soon
 
 ## 📦 Getting Started
 To setup the repo locally start by cloning it locally:
 ```
-git clone https://github.com/TristanToye/rails-5-boilerplate.git
-cd rails-5-boilerplate
+git clone https://github.com/TristanToye/rails-template.git
+cd rails-template
 ```
 
 ## 🔧 Local Setup
@@ -170,7 +170,7 @@ Brakeman: security analysis, [read more here](https://github.com/presidentbeef/b
 
 ## 🚀 Deployment
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/TristanToye/rails-5-boilerplate)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/TristanToye/rails-template)
 
 We are going to deloy this [Heroku](https://www.heroku.com/)
 
@@ -203,7 +203,7 @@ Connect your github account and select the repo to start running tests.
 
 By default this is configured to push code coverage to CodeClimate (see below).
 
-If you don't want to use CodeClimate comment out lines 94-96 from [.circleci/config.yml](https://github.com/TristanToye/rails-5-boilerplate/blob/master/.circleci/config.yml#L94):
+If you don't want to use CodeClimate comment out lines 94-96 from [.circleci/config.yml](https://github.com/TristanToye/rails-template/blob/master/.circleci/config.yml#L94):
 ```
       - send-code-coverage:
           requires:

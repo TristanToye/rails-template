@@ -93,7 +93,7 @@ end
 gem 'tzinfo-data', platforms: ['mingw', 'mswin', 'x64_mingw', 'jruby']
 
 # Basic user Auth https://github.com/plataformatec/devise
-gem "devise", ">= 4.7.1"
+gem 'devise', '>= 4.7.1'
 # Fake data generation https://github.com/stympy/faker
 gem 'faker', '~> 1.9'
 # Feature switch management & UI https://github.com/jnunemaker/flipper

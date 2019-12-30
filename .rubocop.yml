@@ -21,7 +21,7 @@ Metrics/LineLength:
   URISchemes:
     - http
     - https
-  IgnoredPatterns: ['(\".*\")', "(\'.*\')", '(\A\s*#.+)']
+  IgnoredPatterns: [(".*"), ('.*'), "(\\'.*\\')", '(\\".*\\")', "(\\A\\s*#.+)"]
   Exclude:
   - 'db/migrate/*'
   - 'db/seeds/*'

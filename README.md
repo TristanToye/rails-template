@@ -42,14 +42,14 @@ cd rails-template
 
 ## 🔧 Local Setup
 Next you need to install all the dependiencies:
-- ruby 2.5.1
+- ruby 2.6.5
 - rails 5.2
 - postgres
 
 To accomplish this I recommend the following:
 - install homebrew
 - install RVM
-- install ruby 2.5.1
+- install ruby 2.6.5 with RVM
 - install rails 5.2
 - install postgres 10
 

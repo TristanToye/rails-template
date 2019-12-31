@@ -5,6 +5,7 @@ AllCops:
   Exclude:
       - 'db/*'
       - vendor/**/*
+      - node_modules/**/*
 
 Metrics/BlockLength:
   Enabled: true

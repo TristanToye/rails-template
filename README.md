@@ -11,7 +11,7 @@ This repo focuses on getting your project setup ASAP with all the tooling to sta
 
 ## ⬆️ Versions
 - [Live Demo (master branch)](https://demo.railstemplate.com)
-- Rails 6.x Coming Soon
+- [Rails 6.x](https://github.com/TristanToye/rails-template/)
 - [Rails 5.x](https://github.com/TristanToye/rails-template/tree/v1.1)
 - [Rails 4.x](https://github.com/TristanToye/rails-4-boilerplate)
 
@@ -49,14 +49,17 @@ cd rails-template
 ## 🔧 Local Setup
 Next you need to install all the dependiencies:
 - ruby 2.6.5
-- rails 5.2
+- rails 6
+- node 8.16.0
 - postgres
 
 To accomplish this I recommend the following:
 - install homebrew
 - install RVM
 - install ruby 2.6.5 with RVM
-- install rails 5.2
+- install rails 6
+- install NVM
+- install node 8.16.0 with NVM
 - install postgres 10
 
 This guide walks you through it in details: http://railsapps.github.io/installrubyonrails-mac.html
@@ -77,7 +80,7 @@ $ bundle install
 ```
 
 ### 🔒 Setup Secrets
-For most credentials we want to use the new Rails 5.2 credential management. This article explains it well with examples: https://medium.com/cedarcode/rails-5-2-credentials-9b3324851336
+For most credentials we want to use the Rails 5.2 credential management. This article explains it well with examples: https://medium.com/cedarcode/rails-5-2-credentials-9b3324851336
 
 To get started here go delete my credentials located at `/config/credentials.yml.enc`.
 
@@ -227,7 +230,7 @@ Sign in with github & connect your repo.
 
 Add this environment variable to CirclCi: `CC_TEST_REPORTER_ID`
 
-I highly recommend installing the browser extension as we: https://chrome.google.com/webstore/detail/code-climate/phgahogocbnfilkegjdpohgkkjgahjgk
+I highly recommend installing the browser extension: https://chrome.google.com/webstore/detail/code-climate/phgahogocbnfilkegjdpohgkkjgahjgk
 
 ## ✉️ Mailer Setup
 

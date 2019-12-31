@@ -96,7 +96,7 @@ guard 'livereload' do
     scss: :css,
     sass: :css,
     js: :js,
-    coffee: :js,
+    # coffee: :js, # uncomment if you are ussing CoffeeScript
     html: :html,
     png: :png,
     gif: :gif,

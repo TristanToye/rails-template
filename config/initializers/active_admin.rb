@@ -69,6 +69,11 @@ ActiveAdmin.setup do |config|
   # case when Pundit is unable to find suitable policy.
   # config.pundit_default_policy = 'MyDefaultPunditPolicy'
 
+  # If you wish to maintain a separate set of Pundit policies for admin
+  # resources, you may set a namespace here that Pundit will search
+  # within when looking for a resource's policy.
+  # config.pundit_policy_namespace = :admin
+
   # You can customize your CanCan Ability class name here.
   # config.cancan_ability_class = 'Ability'
 
@@ -86,7 +91,7 @@ ActiveAdmin.setup do |config|
   #
   # This setting changes the method which Active Admin calls
   # (within the application controller) to return the currently logged in user.
-  # config.current_user_method = :current_admin_user
+  config.current_user_method = :current_user
 
   # == Logging Out
   #
@@ -98,7 +103,7 @@ ActiveAdmin.setup do |config|
   # will call the method to return the path.
   #
   # Default:
-  config.logout_link_path = :destroy_admin_user_session_path
+  config.logout_link_path = :destroy_user_session_path
 
   # This setting changes the http method used when rendering the
   # link. For example :get, :delete, :put, etc..
@@ -147,11 +152,21 @@ ActiveAdmin.setup do |config|
   #
   # config.before_action :do_something_awesome
 
+  # == Attribute Filters
+  #
+  # You can exclude possibly sensitive model attributes from being displayed,
+  # added to forms, or exported by default by ActiveAdmin
+  #
+  config.filter_attributes = [:encrypted_password, :password, :password_confirmation]
+
   # == Localize Date/Time Format
   #
   # Set the localize format to display dates and times.
   # To understand how to localize your app with I18n, read more at
-  # https://github.com/svenfuchs/i18n/blob/master/lib%2Fi18n%2Fbackend%2Fbase.rb#L52
+  # https://guides.rubyonrails.org/i18n.html
+  #
+  # You can run `bin/rails runner 'puts I18n.t('date.formats')'` to see the
+  # available formats in your application.
   #
   config.localize_format = :long
 
@@ -271,11 +286,31 @@ ActiveAdmin.setup do |config|
   # config.filters = true
   #
   # By default the filters include associations in a select, which means
-  # that every record will be loaded for each association.
+  # that every record will be loaded for each association (up
+  # to the value of config.maximum_association_filter_arity).
   # You can enabled or disable the inclusion
   # of those filters by default here.
   #
   # config.include_default_association_filters = true
+
+  # config.maximum_association_filter_arity = 256 # default value of :unlimited will change to 256 in a future version
+  # config.filter_columns_for_large_association, [
+  #    :display_name,
+  #    :full_name,
+  #    :name,
+  #    :username,
+  #    :login,
+  #    :title,
+  #    :email,
+  #  ]
+  # config.filter_method_for_large_association, '_starts_with'
+
+  # == Head
+  #
+  # You can add your own content to the site head like analytics. Make sure
+  # you only pass content you trust.
+  #
+  # config.head = ''.html_safe
 
   # == Footer
   #

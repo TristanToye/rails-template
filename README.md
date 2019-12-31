@@ -12,7 +12,7 @@ This repo focuses on getting your project setup ASAP with all the tooling to sta
 ## ⬆️ Versions
 - [Live Demo (master branch)](https://demo.railstemplate.com)
 - Rails 6.x Coming Soon
-- [Rails 5.x](https://github.com/TristanToye/rails-template)
+- [Rails 5.x](https://github.com/TristanToye/rails-template/tree/v1.1)
 - [Rails 4.x](https://github.com/TristanToye/rails-4-boilerplate)
 
 ## ✨ Features

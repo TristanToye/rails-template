@@ -38,7 +38,7 @@ group :development, :test do
   # Stubbing for rails model https://github.com/thoughtbot/factory_bot_rails
   gem 'factory_bot_rails', '~> 4.11'
   # RSpec Testing https://github.com/rspec/rspec-rails
-  gem 'rspec-rails', '~> 3.8'
+  gem 'rspec-rails', '4.0.0.beta3'
   # Ruby static linting https://github.com/rubocop-hq/rubocop
   gem 'rubocop', '~> 0.63.1', require: false
   # RSpec extension https://github.com/rubocop-hq/rubocop-rspec

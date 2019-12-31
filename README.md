@@ -9,6 +9,12 @@ Everything used in this repo is open source, free, or optional.
 
 This repo focuses on getting your project setup ASAP with all the tooling to start deploying from your first commit.
 
+## ⬆️ Versions
+- [Live Demo (master branch)](https://demo.railstemplate.com)
+- Rails 6.x Coming Soon
+- [Rails 5.x](https://github.com/TristanToye/rails-template)
+- [Rails 4.x](https://github.com/TristanToye/rails-4-boilerplate)
+
 ## ✨ Features
 - User Accounts & Authentication: [Devise](https://github.com/plataformatec/devise)
 - Feature Switching with a UI: [flipper](https://github.com/jnunemaker/flipper)
@@ -92,7 +98,7 @@ Create a new file `.env` in the root of the repo. This will load any environment
 ### 🗃 Generate Local Database
 Makes sure postgres is running and setup your database:
 ```
-$ rails db:setup db:migrate
+$ rails db:setup db:schema:load
 ```
 
 Now you should be able to start your rails app and load it in your browser at http://localhost:3000:
@@ -186,7 +192,7 @@ Deploy your repo from the `deploy` tab by connecting your github account and sel
 
 Finally, run the following to setup you database on the Heroku Postgres instance:
 ```
-heroku run rails db:migrate -a APP_NAME`
+heroku run rails db:schema:load -a APP_NAME
 ```
 
 Heroku has a great set of documentation on how to get setup: https://devcenter.heroku.com/articles/getting-started-with-rails5
@@ -197,7 +203,7 @@ This section could be expanded, but out of ther box there are some basic tools i
 ### CircleCi
 Use this for CI with Heroku to ensure all your tests pass before deploying a new version, before merging your latest PRs etc.
 
-You get one free linux bos to run tests on: https://circleci.com
+You get one free linux box to run tests on: https://circleci.com
 
 Connect your github account and select the repo to start running tests.
 

@@ -24,6 +24,7 @@ This repo focuses on getting your project setup ASAP with all the tooling to sta
 - Upgraded Testing Suite: [RSpec](https://github.com/rspec/rspec), [faker](https://github.com/stympy/faker), [factory_bot](https://github.com/thoughtbot/factory_bot)
 - Static Analyses: [Brakeman](https://github.com/presidentbeef/brakeman), [Rubopcop](https://github.com/rubocop-hq/rubocop)
 - Continuous Integration: [CircleCI](https://circleci.com), [CodeClimate](https://codeclimate.com)
+- Continuous Deployment: [Heroku](https://heroku.com), [Docker](https://www.docker.com/)
 - Code Coverage Reporting with a UI: [simplecov](https://github.com/colszowka/simplecov)
 
 ## 📝 Guides
@@ -47,6 +48,8 @@ cd rails-template
 ```
 
 ## 🔧 Local Setup
+
+### Manual Setup
 Next you need to install all the dependiencies:
 - ruby 2.7.0
 - rails 6
@@ -64,7 +67,7 @@ To accomplish this I recommend the following:
 
 This guide walks you through it in details: http://railsapps.github.io/installrubyonrails-mac.html
 
-The only issue you might run into is setting up Postgres. If you use the recommend Postgres app (do this). When installing the `pg` gem you will need to run the following:
+The only issue you might run into is setting up Postgres. If you use the recommended [Postgres app](https://postgresapp.com/) (do this). When installing the `pg` gem you will need to run the following:
 ```
 gem install pg -- --with-pg-config=/Applications/Postgres.app/Contents/Versions/10/bin/pg_config
 ```
@@ -77,6 +80,19 @@ export PATH="/Applications/Postgres.app/Contents/MacOS/bin:$PATH"
 Once you have everything installed, run bundler to get our gems setup:
 ```
 $ bundle install
+```
+
+### 🐳 Docker Setup
+
+**NOTE** This is too slow in my opinion to use for local development.
+
+You will need to have [Docker Desktop Installed](https://hub.docker.com/?overlay=onboarding)
+
+You should then be able to run:
+```
+docker-compose build
+docker-compose run rails-template bundle exec rails db:setup db:schema:load
+docker-compose up
 ```
 
 ### 🔒 Setup Secrets

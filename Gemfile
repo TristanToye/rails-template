@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.5'
+ruby '2.7.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
@@ -40,7 +40,7 @@ group :development, :test do
   # RSpec Testing https://github.com/rspec/rspec-rails
   gem 'rspec-rails', '4.0.0.beta3'
   # Ruby static linting https://github.com/rubocop-hq/rubocop
-  gem 'rubocop', '~> 0.63.1', require: false
+  gem 'rubocop', '~> 0.78', require: false
   # RSpec extension https://github.com/rubocop-hq/rubocop-rspec
   gem 'rubocop-rspec', '~> 1.25'
 end

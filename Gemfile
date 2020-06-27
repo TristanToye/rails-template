@@ -80,7 +80,7 @@ group :test do
   # Awesome DSL for writing tests https://github.com/thoughtbot/shoulda-matchers
   gem 'shoulda-matchers', '4.0.0.rc1'
   # Code Coverage reporting & UI https://github.com/colszowka/simplecov
-  gem 'simplecov', require: false
+  gem 'simplecov', '< 0.18', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

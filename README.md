@@ -86,7 +86,7 @@ To get started here go delete my credentials located at `/config/credentials.yml
 
 We will start by adding a `secret_key_base` to this file:
 ```
-$ rake secrect
+$ rake secret
 840f20e6084666b7aabe9d94...
 $ EDITOR="code --wait" rails credentials:edit
 

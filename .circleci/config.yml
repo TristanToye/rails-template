@@ -14,6 +14,7 @@ defaults: &defaults
     - image: circleci/postgres:10
       environment:
         POSTGRES_USER: root
+        POSTGRES_PASSWORD: password
         POSTGRES_DB: circle-ci_test
 
 jobs:

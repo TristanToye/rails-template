@@ -3,7 +3,7 @@ version: 2
 defaults: &defaults
   working_directory: ~/repo
   docker:
-    - image: circleci/ruby:2.7.0-node-browsers
+    - image: cimg/ruby:2.7.4-browsers
       environment:
         JOBS: 2
         RAILS_ENV: test
@@ -11,7 +11,7 @@ defaults: &defaults
         PGUSER: root
         LOCAL_TEST_DB_NAME: circle-ci_test
         DATABASE_URL: "postgres://root@localhost:5432/circle-ci_test"
-    - image: circleci/postgres:10
+    - image: cimg/postgres:10.18
       environment:
         POSTGRES_USER: root
         POSTGRES_PASSWORD: password
@@ -44,6 +44,7 @@ jobs:
       - run:
           name: Install dependencies
           command: |
+            gem install bundler -v $(cat Gemfile.lock | tail -1 | tr -d ' ')
             bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs 4 --retry 3
       - save_cache:
           key: rails-template-{{ checksum "Gemfile.lock" }}

@@ -48,7 +48,7 @@ cd rails-template
 
 ## 🔧 Local Setup
 Next you need to install all the dependiencies:
-- ruby 2.7.0
+- ruby 2.7.4
 - rails 6
 - node 8.16.0
 - postgres 10
@@ -56,7 +56,7 @@ Next you need to install all the dependiencies:
 To accomplish this I recommend the following:
 - install homebrew
 - install RVM
-- install ruby 2.7.0 with RVM
+- install ruby 2.7.4 with RVM
 - install rails 6
 - install NVM
 - install node 8.16.0 with NVM

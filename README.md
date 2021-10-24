@@ -22,7 +22,7 @@ This repo focuses on getting your project setup ASAP with all the tooling to sta
 - Secrets Management: [dotenv](https://github.com/bkeepers/dotenv)
 - Livereload for Development: [Guard](https://github.com/guard/guard)
 - Upgraded Testing Suite: [RSpec](https://github.com/rspec/rspec), [faker](https://github.com/stympy/faker), [factory_bot](https://github.com/thoughtbot/factory_bot)
-- Static Analyses: [Brakeman](https://github.com/presidentbeef/brakeman), [Rubopcop](https://github.com/rubocop-hq/rubocop)
+- Static Analysis: [Brakeman](https://github.com/presidentbeef/brakeman), [Rubopcop](https://github.com/rubocop-hq/rubocop)
 - Continuous Integration: [CircleCI](https://circleci.com), [CodeClimate](https://codeclimate.com)
 - Code Coverage Reporting with a UI: [simplecov](https://github.com/colszowka/simplecov)
 
